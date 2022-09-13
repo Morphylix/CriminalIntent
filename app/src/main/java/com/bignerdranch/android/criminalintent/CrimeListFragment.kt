@@ -4,12 +4,12 @@ import android.content.Context
 import android.os.Bundle
 import android.text.format.DateFormat
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -25,6 +25,7 @@ private var callbacks: CrimeListFragment.Callbacks? = null
 
 class CrimeListFragment : Fragment() {
     private val crimeListViewModel by lazy { ViewModelProvider(this).get(CrimeListViewModel::class.java) }
+
 
     interface Callbacks {
         fun onCrimeSelected(crimeId: UUID)
@@ -116,12 +117,27 @@ class CrimeListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val addCrimeText: TextView = view.findViewById(R.id.add_crime_text)
+        val addCrimeButton: Button = view.findViewById(R.id.add_crime_button)
+
+        addCrimeButton.setOnClickListener {
+            addCrime()
+        }
+
         crimeListViewModel.crimeListLiveData.observe(
             viewLifecycleOwner
         ) { crimes ->
             crimes?.let {
                 Log.i(TAG, "Got crimes ${crimes.size}")
                 updateUI(crimes)
+            }
+            if (crimes.isNotEmpty()) {
+                addCrimeText.isVisible = false
+                addCrimeButton.isVisible = false
+            } else {
+                addCrimeText.isVisible = true
+                addCrimeButton.isVisible = true
             }
         }
     }
@@ -138,5 +154,32 @@ class CrimeListFragment : Fragment() {
 
     private fun updateUI(crimes: List<Crime>) {
         adapter?.submitList(crimes)
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.fragment_crime_list, menu)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.new_crime -> {
+                addCrime()
+                true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun addCrime() {
+        val crime = Crime()
+        crimeListViewModel.addCrime(crime)
+        callbacks?.onCrimeSelected(crime.id)
     }
 }

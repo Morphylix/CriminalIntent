@@ -4,9 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Programming/AndroidStudioProjects/CriminalIntent/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Programming/AndroidStudioProjects/CriminalIntent/app/src/main/res/layout/fragment_crime.xml" value="0.4" />
+        <entry key="..\:/Programming/AndroidStudioProjects/CriminalIntent/app/src/main/res/layout/fragment_blank.xml" value="0.2427536231884058" />
+        <entry key="..\:/Programming/AndroidStudioProjects/CriminalIntent/app/src/main/res/layout/fragment_crime.xml" value="0.29958960328317374" />
+        <entry key="..\:/Programming/AndroidStudioProjects/CriminalIntent/app/src/main/res/layout/fragment_crime_list.xml" value="0.152" />
         <entry key="..\:/Programming/AndroidStudioProjects/CriminalIntent/app/src/main/res/layout/list_item_crime.xml" value="0.536" />
         <entry key="..\:/Programming/AndroidStudioProjects/CriminalIntent/app/src/main/res/layout/list_item_serious_crime.xml" value="0.4" />
+        <entry key="..\:/Programming/AndroidStudioProjects/CriminalIntent/app/src/main/res/menu/fragment_crime_list.xml" value="0.6" />
+        <entry key="..\:/Programming/AndroidStudioProjects/CriminalIntent/app/src/main/res/xml/files.xml" value="0.2427536231884058" />
       </map>
     </option>
   </component>
