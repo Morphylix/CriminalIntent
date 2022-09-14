@@ -23,5 +23,8 @@ The crime was discovered on %2$s. %3$s, and %4$s</string>
     <string name="call_suspect">Make a call of friendship!</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="crime_photo_button_description">Take photo of crime scene</string>
+    <string name="crime_photo_no_image_description"> Crime scene photo (not set)</string>
+    <string name="crime_photo_image_description">Crime scene photo (set)</string>
 
 </resources>

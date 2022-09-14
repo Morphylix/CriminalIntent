@@ -1,5 +1,6 @@
 package com.bignerdranch.android.criminalintent
 
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.text.format.DateFormat
@@ -35,7 +36,8 @@ class CrimeListFragment : Fragment() {
     private lateinit var crimeRecyclerView: RecyclerView
     private var adapter: CrimeAdapter? = CrimeAdapter()
 
-    private class CrimeHolder(view: View) : RecyclerView.ViewHolder(view),
+    // make it inner to access context
+    class CrimeHolder(view: View) : RecyclerView.ViewHolder(view),
         View.OnClickListener {
         private lateinit var crime: Crime
 
@@ -51,6 +53,7 @@ class CrimeListFragment : Fragment() {
             this.crime = crime
             titleTextView.text = this.crime.title
             val data = DateFormat.format("EEEE, MMM dd, yyyy", this.crime.date)
+            // val data = DateFormat.getDateFormat().format(this.crime.date)
             dateTextView.text = data
             isSolvedImageView.visibility = if (this.crime.isSolved) {
                 View.VISIBLE
