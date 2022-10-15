@@ -25,6 +25,7 @@ Learned and worked with:
 * OptionsMenu
 * ViewModel
 * Localisation
+* Resources & configuration 
 
 Screenshots:
 ---------------------------
