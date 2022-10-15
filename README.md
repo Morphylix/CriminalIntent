@@ -24,6 +24,7 @@ Learned and worked with:
 * LiveData & Observable
 * OptionsMenu
 * ViewModel
+* Localisation
 
 Screenshots:
 ---------------------------
