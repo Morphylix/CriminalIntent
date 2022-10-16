@@ -5,7 +5,7 @@ An app from the book **'Android Programming (4th edition)'** by *Big Nerd Ranch*
 
 Learned and worked with:
 -----------------------------
-* Room
+* Room:
   * GET, UPDATE & INSERT Queries
   * TypeConverters
   * Migration
